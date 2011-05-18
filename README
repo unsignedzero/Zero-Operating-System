@@ -1,0 +1,189 @@
+---------------------------------------------------------------
+| -- START OF FILE -- -- START OF FILE -- -- START OF FILE -- |
+---------------------------------------------------------------
+---------------------------------------------------------------
+Zero Operating System
+FileList:
+-ZOS.h
+-ZOS.cpp
+Version 1.2.1.0
+Built in C++ 
+Created by UnsignedZero
+
+64CR(64 character per line plus carriage return)
+
+Please READ THIS TEXT FILE BEFORE ASKING QUESTIONS! If this 
+file is incomplete, please go to, .... and download 
+the file again, or read it there. 
+
+Abstract:
+The purpose of this code is to give the programmer the ability 
+to preform simple CLI-based functions, without having to 
+change the source code, whenever it is compiled for 
+different OSes. Examples include clearing the screen, which is
+cls for windows but clear but unix and pause which itself 
+changes quite a bit in unix. Versions higher than 1.1, 
+also provide basic file support management. The functions 
+are located in ZX namespace.
+---------------------------------------------------------------
+---------------------------------------------------------------
+
+ - Table of Contents
+ - - Use Ctrl/Cmd + F to jump to certain part of this text
+ - - using the characters between the [ and ].
+
+ -  (0*) Information
+ - - 00 [Adin] Additional Information
+ - - 01 [DEBG] Debug Information
+ - - 02 [ZSUP] ZX File Support
+
+ -  (A*) Functions 
+ - - A0 [ZS01] ZOS (Integer)
+ - - A1 [ZS02] ZOS (Integer, String)
+
+ -  (Z*) End Information
+ - - Z0 [ABUT] About 
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+ -  (0*) Information
+---------------------------------------------------------------
+ - - 00 [Adin] Additional Information
+
+All functions of this code assume that system calls WORK. This
+code, for the most part has functions that simpile system 
+calls in general. The code will work generally in mostly all 
+cases, unless either your system isn't linux and isn't 
+windows, or the compiler flag used for this program is not 
+set, which would probably only happen on really old systems. 
+
+Remember that the functions are placed in zx namespace so add
+"zx::" in front of the function name, when calling it, OR add
+"using namespace zx;" AFTER including the file with 
+#include "ZOS.h"
+
+For the sake of simpliisicity, all functions HAVE the same 
+name ZOS. Furthermore, the first argument for any of these 
+functions IS an integer. This integer tell the function 
+what functionailty is desired. There are no argumentless 
+functions, as of the time of writing. 
+
+All functions support const inputs as they all pass 
+input-only arguments. Please see 01 [DEBG] Debug Information 
+to use this functionality!
+
+---------------------------------------------------------------
+ - - 01 [DEBG] Debug Information
+
+This code has debug information that can be turned on/off when 
+compiling. The defines MUST BE ENTERED before including ZOS.H!
+Entering it in AFTER MAY HAVE unexpected results, depending on 
+the compiler. Remember that defines are case-sentative!
+
+Support for constants are input arguments can be turned on by 
+setting ZX_ZOS_CONST to true with a 
+"#define ZX_ZOS_CONST true".
+[BY default this is set to false!] 
+
+Additional debug information about what each function is doing  
+can be turned on by setting ZX_SC_DEBUG to true with a 
+"#define ZX_ZOS_DEBUG true".
+[BY default this is set to false!]
+
+---------------------------------------------------------------
+ - - 02 [ZSUP] ZX File Support
+
+This code can support with other files created by Zesler and 
+other C++ code in general. ERRORS may result IF other files 
+created by Zesler ARE INCLUDED before this code! For more 
+information on file Support go to .....
+
+Currently this program can support:
+
+ - SC
+ - - To pause correctly regardless on the OS this code is 
+ - - compiled on 
+ - ZINI
+ - - To pause correctly regardless on the OS this code is 
+ - - compiled on 
+ - ZLOG
+ - - To pause correctly regardless on the OS this code is 
+ - - compiled on 
+...
+
+---------------------------------------------------------------
+ -  (A*) Functions 
+---------------------------------------------------------------
+ - - A0 [ZS01] ZOS (Integer)
+
+Function:
+zx::ZOS
+( int a );
+
+This is probably the shortest and simpliest function. 
+If
+ ( a is 1 ) then this function will clear the screen
+ ( a is 2 ) then this function will pause the screen
+
+-PreCondition:
+An integer is passed.
+
+-PostCondition:
+The desired function is system called.
+
+!WARNING:Sending values that have no system call set to it is 
+a bad idea. As this program updates, additional functionality 
+made be added, cause the "pointless" action to have do 
+something!
+
+---------------------------------------------------------------
+ - - A1 [ZS02] ZOS (Integer, String)
+
+Function:
+zx::ZOS
+( int a, std::string fname );
+
+Similar to the above function but focuses on files.
+
+---------------------------------------------------------------
+This is probably the shortest and simpliest function. 
+If
+ ( a is 1 ) then this function will set the read-only and
+                 hidden bit on the file
+ ( a is 2 ) then this function will unset the read-only and
+                 hidden bit on the file
+ ( a is 3 ) then this function will create the file
+ ( a is 4 ) then this function will delete the file
+
+-PreCondition:
+An integer and string, containing a filename, is passed.
+
+-PostCondition:
+The desired function is system called.
+
+!WARNING:Sending values that have no system call set to it is 
+a bad idea. As this program updates, additional functionality 
+made be added, cause the "pointless" action to have do 
+something!
+
+!WARNING:Sending empty strings may have unexpected resulted!
+
+---------------------------------------------------------------
+ -  (Z*) End Information
+---------------------------------------------------------------
+ - - Z0 [ABUT] About 
+
+This program is created by UnsignedZero so that source code 
+would be compatible across different OSes, when the code used native CLI functions.  
+
+Original Project Name:CLIBridge
+Started:July 08, 2010
+Created by UnsignedZero
+Built in C++ on Code::Blocks V8.02 Unicode
+
+For more information see ...
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+|  -- END OF FILE --   -- END OF FILE --   -- END OF FILE --  |
+---------------------------------------------------------------
