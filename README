@@ -6,7 +6,7 @@ Zero Operating System
 FileList:
 -ZOS.h
 -ZOS.cpp
-Version 1.2.1.0
+Version 1.2.1.1
 Built in C++ 
 Created by UnsignedZero
 
@@ -90,6 +90,15 @@ can be turned on by setting ZX_SC_DEBUG to true with a
 "#define ZX_ZOS_DEBUG true".
 [BY default this is set to false!]
 
+Libraryless mode can be turned on and off. This gives the 
+programmer the ability to make this library use NO libraries 
+and thus this make this code "lighter".
+"#define ZX_ZOS_LITE false".
+
+[BY default this is set to true!]
+(Note: Turning this on WILL DISABLE ALL functions that use or 
+requires AT LEAST ONE EXTERNAL LIBRARY.)
+
 ---------------------------------------------------------------
  - - 02 [ZSUP] ZX File Support
 
@@ -168,13 +177,16 @@ something!
 
 !WARNING:Sending empty strings may have unexpected resulted!
 
+!WARNING:If ZX_ZOS_LITE is true, this function IS DISABLED!
+
 ---------------------------------------------------------------
  -  (Z*) End Information
 ---------------------------------------------------------------
  - - Z0 [ABUT] About 
 
 This program is created by UnsignedZero so that source code 
-would be compatible across different OSes, when the code used native CLI functions.  
+would be compatible across different OSes, when the code used 
+native CLI functions.  
 
 Original Project Name:CLIBridge
 Started:July 08, 2010
@@ -182,6 +194,10 @@ Created by UnsignedZero
 Built in C++ on Code::Blocks V8.02 Unicode
 
 For more information see ...
+You may contact me via email (unsignedzero@gmail.com) if you
+have any suggestions and comments. Be warned that I DON'T 
+check it daily. 
+
 
 ---------------------------------------------------------------
 ---------------------------------------------------------------

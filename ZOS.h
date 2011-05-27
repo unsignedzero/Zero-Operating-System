@@ -1,6 +1,6 @@
 //Created by David Tran (UnsignedZero)
 //for the simple purpose of OS detection
-//Verison 1.2.1.0
+//Verison 1.2.1.1
 
 /* Operation System Pointer
  * The goal of this header is allow the programmer
@@ -14,8 +14,11 @@
 
 #ifndef ZOS_H
 #define ZOS_H true
-
 #define ZX_ZOS_CLI "\nZX_ZOS> "
+
+#ifndef ZX_ZOS_LITE
+ #define ZX_ZOS_LITE false
+#endif
 
 //Doesn't do anything currently
 /*
@@ -48,7 +51,9 @@
 # define ZX_OS 0
 #endif
 
+#if(ZX_ZOS_LITE!=true)
 #include <string>
+#endif
 
 namespace zx {
 
@@ -72,7 +77,7 @@ namespace zx {
      * A=10 Shutdown... (default 1 minutes)
      */
 
-
+#if(ZX_ZOS_LITE!=true)
   void OSP(int, std::string);
   // Call Aliases
    void OSP(int b, std::string* d ){ std::string c = *d; OSP(b,c); }
@@ -129,6 +134,7 @@ namespace zx {
 	   void OSP(const int* const b, const std::string* d){ int a = *b; std::string c = *d; OSP(a,c); }
 	   void OSP(const int* const b, const std::string* const d){ int a = *b; std::string c = *d; OSP(a,c); }
    #endif
+#endif
 
    /* Operation System Pointer (File)
     * Allows use of simple CLI file functions

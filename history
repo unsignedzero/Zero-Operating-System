@@ -1,0 +1,19 @@
+This program was originally created to link native CLI 
+functions (regardless of OS) to C++.
+
+Version 1.0.0.0 07-08-2010 Foundation
+Original Work Code Created.
+Clear Screen and Pause works, regardless of OS.
+
+Version 1.2.0.0 10-16-2010 Support
+File Creation/Deletion/Hide/Reveal functions added.
+Constant Input Support Added
+
+Version 1.2.1.0 02-28-2011 Support Column
+Pointer Input Added
+Code availible on GIT
+
+Version 1.2.1.1 05-27-2011 
+Output, under debug mode modified so its easier to
+identify this code when debugging.
+LITE option added. (NO library dependancy.)
